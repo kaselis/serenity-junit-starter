@@ -1,11 +1,9 @@
 package starter.acceptancetests;
 
-import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.openqa.selenium.WebDriver;
 
 @ExtendWith(SerenityJUnit5Extension.class)
 class WhenAddingNumbers {
@@ -14,6 +12,9 @@ class WhenAddingNumbers {
     MathWizSteps michael;
 
     @Test
+    @ExtendWith(MyCustomCondition.class)
+//    @DisabledForJreRange(max = JRE.JAVA_21)
+//    @DisabledOnOs({OS.MAC, OS.LINUX})
     public void addingSums() {
         // Given
         michael.startsWith(1);
